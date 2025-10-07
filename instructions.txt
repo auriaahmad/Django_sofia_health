@@ -1,0 +1,38 @@
+Sofia Health Engineer
+Sofia Health is a Django CMS–based health and wellness platform handling bookings, payments, and provider management. 
+We’re looking for someone who can maintain and extend a Django-based system with Stripe integration and scheduling features.
+
+This short assessment is designed to show your comfort with Django, Stripe, and explaining your thinking.
+
+
+In this assessment, you will be submitting your solution using git. 
+To do so, you will need to clone the repo linked above, 
+and push all your changes to the dev branch (which is also the default branch). 
+You will be submitting this assessment by creating a pull request between the dev and the main branch.
+
+If you need help with how to clone the repo to work on the project locally, see this link for help.
+
+Part 1: Core Skills (Hands-On)
+Build a very simple Django project that demonstrates:
+A model for Appointment with fields: provider_name, appointment_time, and client_email.
+A form or API endpoint to create an appointment.
+A mock payment flow using Stripe's test keys (no need to set up webhooks or full checkout – just show 
+you can create a test PaymentIntent or CheckoutSession).
+Deliverables:
+A GitHub repo or zipped project uploaded to Hatchways with code and setup instructions.
+A short README explaining how to run the project and how the Stripe integration works.
+
+Part 2: Problem-Solving & Communication
+Answer briefly (one paragraph each):
+If this appointment feature had to handle thousands of bookings per day, what one or two changes would you make first?
+How would you communicate progress and blockers to a non-technical founder?
+Plain English is fine – we want to see how you explain your thinking.
+What We're Looking For
+Python/Django familiarity: Clean, minimal code.
+Stripe familiarity: Ability to integrate test payments.
+Communication: Clear, non-technical explanations.
+
+Submitting Your Solution
+
+Open a pull request from dev into main once you are ready to submit. 
+Do not merge the pull request. Here is a step-by-step guide on how to create a pull request.

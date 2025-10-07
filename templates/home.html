@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sofia Health - Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div
+    class="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen flex items-center">
+    <!-- Animated Background Shapes -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div
+            class="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-blob">
+        </div>
+        <div
+            class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <div class="text-center">
+        <!-- Hero Image - Yoga Pose (Behind everything) -->
+        <div class="absolute top-[58%] left-[70%] transform -translate-x-1/2 -translate-y-1/2 z-0">
+            <img src="{% static 'images/hero.png' %}" alt="Healthcare Professional" class="hero-image"
+                style="max-width: 70em; width: 70em; height: auto; opacity: 1;" id="hero-image" />
+        </div>
+        <div class="max-w-7xl lg:left-[30%] mx-auto relative z-10 w-full px-4 sm:px-6 lg:px-8 py-20">
+
+            <!-- Gradient Badge -->
+            <div class="inline-flex items-center justify-center mb-6 relative z-20">
+                <span
+                    class="px-6 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-semibold shadow-lg">
+                    🏥 Healthcare Made Simple
+                </span>
+            </div>
+
+            <!-- Main Heading with Gradient Text -->
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight font-extrabold mb-6 relative z-20">
+                <span class="block text-gray-800">Welcome to</span>
+                <span
+                    class="block mt-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    Sofia Health
+                </span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p
+                class="mt-6 max-w-2xl mx-auto text-xl sm:text-2xl text-gray-600 font-light leading-relaxed relative z-20">
+                Book appointments with healthcare providers quickly and securely.
+                <span
+                    class="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Pay
+                    safely</span> with Stripe integration.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="mt-16 flex flex-col sm:flex-row gap-4 justify-center items-center relative z-20">
+                <a href="{% url 'create_appointment' %}"
+                    class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-xl hover:shadow-2xl hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Book Appointment
+                </a>
+
+                <a href="{% url 'appointment_list' %}"
+                    class="group inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-gray-700 bg-white border-2 border-gray-300 rounded-xl shadow-lg hover:shadow-xl hover:border-purple-400 transform hover:scale-105 transition-all duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    View Appointments
+                </a>
+            </div>
+
+            <!-- Features Preview -->
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div
+                    class="bg-white rounded-2xl p-6 border border-gray-200 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-gray-800 font-bold text-lg mb-2">Fast Booking</h3>
+                    <p class="text-gray-600 text-sm">Schedule in under 2 minutes</p>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 border border-gray-200 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-gray-800 font-bold text-lg mb-2">Secure Payment</h3>
+                    <p class="text-gray-600 text-sm">Protected by Stripe</p>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-6 border border-gray-200 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <div
+                        class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-gray-800 font-bold text-lg mb-2">Professional</h3>
+                    <p class="text-gray-600 text-sm">Verified healthcare providers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+    </div>
+</div>
+
+<!-- CTA Section -->
+<div class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 py-20">
+    <div class="absolute inset-0 overflow-hidden opacity-20">
+        <div class="absolute -top-20 -right-20 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
+                Ready to get started?
+            </h2>
+            <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                Join thousands of satisfied patients who trust us with their healthcare appointments.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'create_appointment' %}"
+                    class="group inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-purple-700 bg-white rounded-xl shadow-2xl hover:shadow-white/50 transform hover:scale-105 transition-all duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Book Now
+                </a>
+                <a href="/admin/"
+                    class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-lg border-2 border-white/30 rounded-xl hover:bg-white/20 transform hover:scale-105 transition-all duration-300">
+                    Admin Panel
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes blob {
+
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        33% {
+            transform: translate(30px, -50px) scale(1.1);
+        }
+
+        66% {
+            transform: translate(-20px, 20px) scale(0.9);
+        }
+    }
+
+    .animate-blob {
+        animation: blob 7s infinite;
+    }
+
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+
+    .animation-delay-4000 {
+        animation-delay: 4s;
+    }
+</style>
+{% endblock %}

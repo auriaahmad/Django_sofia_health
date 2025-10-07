@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}Booking Confirmed - Sofia Health{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto">
+        <!-- Success Icon Animation -->
+        <div class="text-center">
+            <div class="mx-auto flex items-center justify-center h-24 w-24 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 animate-bounce shadow-2xl">
+                <svg class="h-14 w-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+            <h2 class="mt-8 text-5xl font-extrabold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                Booking Confirmed!
+            </h2>
+            <p class="mt-3 text-lg text-gray-700">
+                🎉 Your appointment has been successfully booked and paid
+            </p>
+        </div>
+
+        <!-- Appointment Details Card -->
+        <div class="mt-10 bg-white/90 backdrop-blur-lg shadow-2xl rounded-2xl overflow-hidden border-2 border-green-200">
+            <div class="bg-gradient-to-r from-green-500 to-emerald-600 px-8 py-5">
+                <h3 class="text-2xl font-bold text-white flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Appointment Details
+                </h3>
+            </div>
+            <div class="px-6 py-4">
+                <dl class="space-y-4">
+                    <div class="border-b pb-3">
+                        <dt class="text-sm font-medium text-gray-500">Provider</dt>
+                        <dd class="mt-1 text-lg text-gray-900 font-semibold">{{ appointment.provider_name }}</dd>
+                    </div>
+                    <div class="border-b pb-3">
+                        <dt class="text-sm font-medium text-gray-500">Your Email</dt>
+                        <dd class="mt-1 text-lg text-gray-900">{{ appointment.client_email }}</dd>
+                    </div>
+                    <div class="border-b pb-3">
+                        <dt class="text-sm font-medium text-gray-500">Appointment Time</dt>
+                        <dd class="mt-1 text-lg text-gray-900 font-semibold">{{ appointment.appointment_time|date:"l, F d, Y" }}</dd>
+                        <dd class="text-sm text-gray-600">{{ appointment.appointment_time|date:"g:i A" }}</dd>
+                    </div>
+                    <div class="flex items-center justify-between pt-2">
+                        <dt class="text-sm font-medium text-gray-500">Payment Status</dt>
+                        <dd>
+                            {% if appointment.is_paid %}
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Paid
+                            </span>
+                            {% else %}
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                                Pending
+                            </span>
+                            {% endif %}
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <h4 class="text-sm font-medium text-blue-900 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                What's Next?
+            </h4>
+            <ul class="mt-3 text-sm text-blue-800 space-y-2 ml-7">
+                <li class="flex items-start">
+                    <span class="mr-2">•</span>
+                    <span>A confirmation email will be sent to {{ appointment.client_email }}</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="mr-2">•</span>
+                    <span>Please arrive 10 minutes before your appointment time</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="mr-2">•</span>
+                    <span>Bring a valid ID and insurance card (if applicable)</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="{% url 'create_appointment' %}" class="flex-1 inline-flex justify-center items-center px-4 py-3 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                Book Another Appointment
+            </a>
+            <a href="{% url 'appointment_list' %}" class="flex-1 inline-flex justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                View All Appointments
+            </a>
+        </div>
+
+        <!-- Home Link -->
+        <div class="mt-6 text-center">
+            <a href="/" class="text-sm font-medium text-blue-600 hover:text-blue-500">
+                ← Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(-5%);
+            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+            transform: translateY(0);
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+    }
+</style>
+{% endblock %}
