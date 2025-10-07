@@ -6,10 +6,10 @@ A Django appointment booking system with Stripe payment integration.
 
 1. **Clone and setup:**
 ```bash
-git clone https://github.com/hatchways-community/sofia-health-engineer-bb86b0e155194272a52759fd63086565.git
+git clone https://github.com/auriaahmad/Django_sofia_health.git
 ```
 ```bash
-cd sofia-health-engineer-bb86b0e155194272a52759fd63086565
+cd Django_sofia_health
 ```
 ```bash
 python -m venv venv
